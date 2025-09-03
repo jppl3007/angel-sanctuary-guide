@@ -165,6 +165,62 @@ const OracleIndex: React.FC = () => {
             <div className="animate-fade-in">
               <RevelationText content={oracleReading} />
               
+              {/* Music Section */}
+              <div className="max-w-3xl mx-auto mt-16 mb-16">
+                <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
+                  <h3 className="font-oracle-title text-2xl md:text-3xl mb-8 text-center">
+                    ✦ Harmonias Celestiais ✦
+                  </h3>
+                  <p className="font-oracle-body text-center mb-8 opacity-90">
+                    Eleve sua vibração com estas frequências sagradas escolhidas especialmente para você
+                  </p>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg hover:border-primary/50 transition-all">
+                      <div>
+                        <h4 className="font-oracle-subtitle text-lg">Frequências do Anjo da Guarda</h4>
+                        <p className="font-oracle-body text-sm opacity-75">Conecte-se com sua proteção divina</p>
+                      </div>
+                      <OracleButton
+                        variant="sacred"
+                        size="sm"
+                        onClick={() => window.open('https://www.youtube.com/watch?v=Dix5pfVpI8o&list=RDDix5pfVpI8o&start_radio=1', '_blank')}
+                      >
+                        ▶ Escutar
+                      </OracleButton>
+                    </div>
+                    
+                    <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg hover:border-primary/50 transition-all">
+                      <div>
+                        <h4 className="font-oracle-subtitle text-lg">Ondas de Paz Interior</h4>
+                        <p className="font-oracle-body text-sm opacity-75">Encontre serenidade e tranquilidade</p>
+                      </div>
+                      <OracleButton
+                        variant="sacred"
+                        size="sm"
+                        onClick={() => window.open('https://www.youtube.com/watch?v=HyI8o_EA3os&list=RDHyI8o_EA3os&start_radio=1', '_blank')}
+                      >
+                        ▶ Escutar
+                      </OracleButton>
+                    </div>
+                    
+                    <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg hover:border-primary/50 transition-all">
+                      <div>
+                        <h4 className="font-oracle-subtitle text-lg">Magnetismo da Abundância</h4>
+                        <p className="font-oracle-body text-sm opacity-75">Atraia prosperidade e riqueza</p>
+                      </div>
+                      <OracleButton
+                        variant="sacred"
+                        size="sm"
+                        onClick={() => window.open('https://www.youtube.com/watch?v=DKm1qNXVz1Q&list=RDDKm1qNXVz1Q&start_radio=1', '_blank')}
+                      >
+                        ▶ Escutar
+                      </OracleButton>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
               <div className="text-center mt-16">
                 <OracleButton
                   variant="mystical"
