@@ -58,6 +58,7 @@ const OracleIndex: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [oracleReading, setOracleReading] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(true);
+  const [currentSection, setCurrentSection] = useState<'main' | 'music' | 'herbs' | 'incense'>('main');
 
   const handleRevealMessage = async () => {
     if (!name.trim() || !birthDate) {
@@ -85,6 +86,7 @@ const OracleIndex: React.FC = () => {
     setShowForm(true);
     setName('');
     setBirthDate('');
+    setCurrentSection('main');
   };
 
   return (
@@ -165,154 +167,238 @@ const OracleIndex: React.FC = () => {
             <div className="animate-fade-in">
               <RevelationText content={oracleReading} />
               
-              {/* Music Section */}
-              <div className="max-w-3xl mx-auto mt-16 mb-16">
-                <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
-                  <h3 className="font-oracle-title text-2xl md:text-3xl mb-8 text-center">
-                    ✦ Harmonias Celestiais ✦
-                  </h3>
-                  <p className="font-oracle-body text-center mb-8 opacity-90">
-                    Eleve sua vibração com estas frequências sagradas escolhidas especialmente para você
-                  </p>
-                  
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg hover:border-primary/50 transition-all">
-                      <div>
-                        <h4 className="font-oracle-subtitle text-lg">Frequências do Anjo da Guarda</h4>
-                        <p className="font-oracle-body text-sm opacity-75">Conecte-se com sua proteção divina</p>
-                      </div>
-                      <OracleButton
-                        variant="sacred"
-                        size="sm"
-                        onClick={() => window.open('https://www.youtube.com/watch?v=Dix5pfVpI8o&list=RDDix5pfVpI8o&start_radio=1', '_blank')}
-                      >
-                        ▶ Escutar
-                      </OracleButton>
-                    </div>
+              {currentSection === 'main' && (
+                <div className="max-w-3xl mx-auto mt-16 mb-16">
+                  <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
+                    <h3 className="font-oracle-title text-2xl md:text-3xl mb-8 text-center">
+                      ✦ Explore Suas Orientações Divinas ✦
+                    </h3>
+                    <p className="font-oracle-body text-center mb-8 opacity-90">
+                      Descubra as práticas sagradas que irão elevar sua vibração e transformar sua jornada espiritual
+                    </p>
                     
-                    <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg hover:border-primary/50 transition-all">
-                      <div>
-                        <h4 className="font-oracle-subtitle text-lg">Ondas de Paz Interior</h4>
-                        <p className="font-oracle-body text-sm opacity-75">Encontre serenidade e tranquilidade</p>
-                      </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       <OracleButton
                         variant="sacred"
-                        size="sm"
-                        onClick={() => window.open('https://www.youtube.com/watch?v=HyI8o_EA3os&list=RDHyI8o_EA3os&start_radio=1', '_blank')}
+                        size="lg"
+                        onClick={() => setCurrentSection('music')}
+                        className="h-auto p-6 flex flex-col items-center space-y-3"
                       >
-                        ▶ Escutar
+                        <div className="text-2xl">🎵</div>
+                        <div className="text-center">
+                          <div className="font-oracle-subtitle">Harmonias Celestiais</div>
+                          <div className="font-oracle-body text-xs opacity-75">Frequências sagradas para sua alma</div>
+                        </div>
                       </OracleButton>
-                    </div>
-                    
-                    <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg hover:border-primary/50 transition-all">
-                      <div>
-                        <h4 className="font-oracle-subtitle text-lg">Magnetismo da Abundância</h4>
-                        <p className="font-oracle-body text-sm opacity-75">Atraia prosperidade e riqueza</p>
-                      </div>
+                      
                       <OracleButton
                         variant="sacred"
-                        size="sm"
-                        onClick={() => window.open('https://www.youtube.com/watch?v=DKm1qNXVz1Q&list=RDDKm1qNXVz1Q&start_radio=1', '_blank')}
+                        size="lg"
+                        onClick={() => setCurrentSection('herbs')}
+                        className="h-auto p-6 flex flex-col items-center space-y-3"
                       >
-                        ▶ Escutar
+                        <div className="text-2xl">🌿</div>
+                        <div className="text-center">
+                          <div className="font-oracle-subtitle">Banhos de Ervas</div>
+                          <div className="font-oracle-body text-xs opacity-75">Rituais ancestrais de purificação</div>
+                        </div>
+                      </OracleButton>
+                      
+                      <OracleButton
+                        variant="sacred"
+                        size="lg"
+                        onClick={() => setCurrentSection('incense')}
+                        className="h-auto p-6 flex flex-col items-center space-y-3"
+                      >
+                        <div className="text-2xl">🔥</div>
+                        <div className="text-center">
+                          <div className="font-oracle-subtitle">Incensos Sagrados</div>
+                          <div className="font-oracle-body text-xs opacity-75">Fragrâncias que elevam a vibração</div>
+                        </div>
                       </OracleButton>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
 
-              {/* Herb Baths Section */}
-              <div className="max-w-3xl mx-auto mt-16 mb-16">
-                <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
-                  <h3 className="font-oracle-title text-2xl md:text-3xl mb-8 text-center">
-                    ✦ Banhos de Ervas Sagradas ✦
-                  </h3>
-                  <p className="font-oracle-body text-center mb-8 opacity-90">
-                    Purifique sua energia com estes banhos ancestrais de cura e proteção
-                  </p>
-                  
-                  <div className="space-y-6">
-                    <div className="p-6 bg-card/50 border border-card-border/50 rounded-lg">
-                      <h4 className="font-oracle-subtitle text-lg mb-3">🌿 Banho de Proteção e Limpeza</h4>
-                      <p className="font-oracle-body text-sm mb-4 opacity-90">
-                        <strong>Ingredientes:</strong> 7 folhas de arruda, 3 ramos de guiné, 1 punhado de sal grosso, pétalas de rosa branca
-                      </p>
-                      <p className="font-oracle-body text-sm opacity-75">
-                        <strong>Finalidade:</strong> Remove energias negativas, corta demandas espirituais e fortalece sua proteção áurica
-                      </p>
+              {currentSection === 'music' && (
+                <div className="max-w-3xl mx-auto mt-16 mb-16">
+                  <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
+                    <div className="flex items-center justify-between mb-8">
+                      <h3 className="font-oracle-title text-2xl md:text-3xl text-center flex-1">
+                        ✦ Harmonias Celestiais ✦
+                      </h3>
+                      <OracleButton
+                        variant="mystical"
+                        size="sm"
+                        onClick={() => setCurrentSection('main')}
+                      >
+                        ← Voltar
+                      </OracleButton>
                     </div>
+                    <p className="font-oracle-body text-center mb-8 opacity-90">
+                      Eleve sua vibração com estas frequências sagradas escolhidas especialmente para você
+                    </p>
                     
-                    <div className="p-6 bg-card/50 border border-card-border/50 rounded-lg">
-                      <h4 className="font-oracle-subtitle text-lg mb-3">💝 Banho do Amor Próprio</h4>
-                      <p className="font-oracle-body text-sm mb-4 opacity-90">
-                        <strong>Ingredientes:</strong> Pétalas de rosa vermelha e rosa, canela em pau, mel, água de rosas
-                      </p>
-                      <p className="font-oracle-body text-sm opacity-75">
-                        <strong>Finalidade:</strong> Desperta o amor próprio, atrai relacionamentos saudáveis e aumenta a autoestima
-                      </p>
-                    </div>
-                    
-                    <div className="p-6 bg-card/50 border border-card-border/50 rounded-lg">
-                      <h4 className="font-oracle-subtitle text-lg mb-3">🍀 Banho da Prosperidade</h4>
-                      <p className="font-oracle-body text-sm mb-4 opacity-90">
-                        <strong>Ingredientes:</strong> Folhas de louro, manjericão, canela em pó, moedas douradas, açúcar cristal
-                      </p>
-                      <p className="font-oracle-body text-sm opacity-75">
-                        <strong>Finalidade:</strong> Atrai abundância financeira, abre caminhos profissionais e magnetiza oportunidades
-                      </p>
-                    </div>
-
-                    <div className="p-6 bg-card/50 border border-card-border/50 rounded-lg">
-                      <h4 className="font-oracle-subtitle text-lg mb-3">🌙 Banho da Intuição</h4>
-                      <p className="font-oracle-body text-sm mb-4 opacity-90">
-                        <strong>Ingredientes:</strong> Folhas de artemísia, lavanda, alecrim, água da lua cheia, ametista pequena
-                      </p>
-                      <p className="font-oracle-body text-sm opacity-75">
-                        <strong>Finalidade:</strong> Desenvolve capacidades psíquicas, fortalece a intuição e conecta com guias espirituais
-                      </p>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg hover:border-primary/50 transition-all">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">Frequências do Anjo da Guarda</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Conecte-se com sua proteção divina</p>
+                        </div>
+                        <OracleButton
+                          variant="sacred"
+                          size="sm"
+                          onClick={() => window.open('https://www.youtube.com/watch?v=Dix5pfVpI8o&list=RDDix5pfVpI8o&start_radio=1', '_blank')}
+                        >
+                          ▶ Escutar
+                        </OracleButton>
+                      </div>
+                      
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg hover:border-primary/50 transition-all">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">Ondas de Paz Interior</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Encontre serenidade e tranquilidade</p>
+                        </div>
+                        <OracleButton
+                          variant="sacred"
+                          size="sm"
+                          onClick={() => window.open('https://www.youtube.com/watch?v=HyI8o_EA3os&list=RDHyI8o_EA3os&start_radio=1', '_blank')}
+                        >
+                          ▶ Escutar
+                        </OracleButton>
+                      </div>
+                      
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg hover:border-primary/50 transition-all">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">Magnetismo da Abundância</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Atraia prosperidade e riqueza</p>
+                        </div>
+                        <OracleButton
+                          variant="sacred"
+                          size="sm"
+                          onClick={() => window.open('https://www.youtube.com/watch?v=DKm1qNXVz1Q&list=RDDKm1qNXVz1Q&start_radio=1', '_blank')}
+                        >
+                          ▶ Escutar
+                        </OracleButton>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
 
-              {/* Incense Section */}
-              <div className="max-w-3xl mx-auto mt-16 mb-16">
-                <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
-                  <h3 className="font-oracle-title text-2xl md:text-3xl mb-8 text-center">
-                    ✦ Incensos Sagrados ✦
-                  </h3>
-                  <p className="font-oracle-body text-center mb-8 opacity-90">
-                    Transforme o ambiente com estas fragrâncias celestiais que elevam a vibração do lar
-                  </p>
-                  
-                  <div className="space-y-4">
-                    <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
-                      <h4 className="font-oracle-subtitle text-lg">🔥 Sândalo</h4>
-                      <p className="font-oracle-body text-sm opacity-75">Promove serenidade, facilita a meditação e conecta com energias superiores</p>
+              {currentSection === 'herbs' && (
+                <div className="max-w-3xl mx-auto mt-16 mb-16">
+                  <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
+                    <div className="flex items-center justify-between mb-8">
+                      <h3 className="font-oracle-title text-2xl md:text-3xl text-center flex-1">
+                        ✦ Banhos de Ervas Sagradas ✦
+                      </h3>
+                      <OracleButton
+                        variant="mystical"
+                        size="sm"
+                        onClick={() => setCurrentSection('main')}
+                      >
+                        ← Voltar
+                      </OracleButton>
                     </div>
+                    <p className="font-oracle-body text-center mb-8 opacity-90">
+                      Purifique sua energia com estes banhos ancestrais de cura e proteção
+                    </p>
                     
-                    <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
-                      <h4 className="font-oracle-subtitle text-lg">⚡ Palo Santo</h4>
-                      <p className="font-oracle-body text-sm opacity-75">Limpa energias densas, protege o ambiente e atrai paz espiritual</p>
-                    </div>
-                    
-                    <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
-                      <h4 className="font-oracle-subtitle text-lg">🌸 Jasmim</h4>
-                      <p className="font-oracle-body text-sm opacity-75">Desperta a sensualidade, atrai o amor e fortalece vínculos afetivos</p>
-                    </div>
+                    <div className="space-y-6">
+                      <div className="p-6 bg-card/50 border border-card-border/50 rounded-lg">
+                        <h4 className="font-oracle-subtitle text-lg mb-3">🌿 Banho de Proteção e Limpeza</h4>
+                        <p className="font-oracle-body text-sm mb-4 opacity-90">
+                          <strong>Ingredientes:</strong> 7 folhas de arruda, 3 ramos de guiné, 1 punhado de sal grosso, pétalas de rosa branca
+                        </p>
+                        <p className="font-oracle-body text-sm opacity-75">
+                          <strong>Finalidade:</strong> Remove energias negativas, corta demandas espirituais e fortalece sua proteção áurica
+                        </p>
+                      </div>
+                      
+                      <div className="p-6 bg-card/50 border border-card-border/50 rounded-lg">
+                        <h4 className="font-oracle-subtitle text-lg mb-3">💝 Banho do Amor Próprio</h4>
+                        <p className="font-oracle-body text-sm mb-4 opacity-90">
+                          <strong>Ingredientes:</strong> Pétalas de rosa vermelha e rosa, canela em pau, mel, água de rosas
+                        </p>
+                        <p className="font-oracle-body text-sm opacity-75">
+                          <strong>Finalidade:</strong> Desperta o amor próprio, atrai relacionamentos saudáveis e aumenta a autoestima
+                        </p>
+                      </div>
+                      
+                      <div className="p-6 bg-card/50 border border-card-border/50 rounded-lg">
+                        <h4 className="font-oracle-subtitle text-lg mb-3">🍀 Banho da Prosperidade</h4>
+                        <p className="font-oracle-body text-sm mb-4 opacity-90">
+                          <strong>Ingredientes:</strong> Folhas de louro, manjericão, canela em pó, moedas douradas, açúcar cristal
+                        </p>
+                        <p className="font-oracle-body text-sm opacity-75">
+                          <strong>Finalidade:</strong> Atrai abundância financeira, abre caminhos profissionais e magnetiza oportunidades
+                        </p>
+                      </div>
 
-                    <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
-                      <h4 className="font-oracle-subtitle text-lg">💰 Mirra</h4>
-                      <p className="font-oracle-body text-sm opacity-75">Atrai abundância material, protege contra inveja e purifica o ambiente</p>
-                    </div>
-
-                    <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
-                      <h4 className="font-oracle-subtitle text-lg">🧿 Olíbano</h4>
-                      <p className="font-oracle-body text-sm opacity-75">Fortalece a proteção espiritual, eleva a consciência e favorece rituais sagrados</p>
+                      <div className="p-6 bg-card/50 border border-card-border/50 rounded-lg">
+                        <h4 className="font-oracle-subtitle text-lg mb-3">🌙 Banho da Intuição</h4>
+                        <p className="font-oracle-body text-sm mb-4 opacity-90">
+                          <strong>Ingredientes:</strong> Folhas de artemísia, lavanda, alecrim, água da lua cheia, ametista pequena
+                        </p>
+                        <p className="font-oracle-body text-sm opacity-75">
+                          <strong>Finalidade:</strong> Desenvolve capacidades psíquicas, fortalece a intuição e conecta com guias espirituais
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
+
+              {currentSection === 'incense' && (
+                <div className="max-w-3xl mx-auto mt-16 mb-16">
+                  <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
+                    <div className="flex items-center justify-between mb-8">
+                      <h3 className="font-oracle-title text-2xl md:text-3xl text-center flex-1">
+                        ✦ Incensos Sagrados ✦
+                      </h3>
+                      <OracleButton
+                        variant="mystical"
+                        size="sm"
+                        onClick={() => setCurrentSection('main')}
+                      >
+                        ← Voltar
+                      </OracleButton>
+                    </div>
+                    <p className="font-oracle-body text-center mb-8 opacity-90">
+                      Transforme o ambiente com estas fragrâncias celestiais que elevam a vibração do lar
+                    </p>
+                    
+                    <div className="space-y-4">
+                      <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <h4 className="font-oracle-subtitle text-lg">🔥 Sândalo</h4>
+                        <p className="font-oracle-body text-sm opacity-75">Promove serenidade, facilita a meditação e conecta com energias superiores</p>
+                      </div>
+                      
+                      <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <h4 className="font-oracle-subtitle text-lg">⚡ Palo Santo</h4>
+                        <p className="font-oracle-body text-sm opacity-75">Limpa energias densas, protege o ambiente e atrai paz espiritual</p>
+                      </div>
+                      
+                      <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <h4 className="font-oracle-subtitle text-lg">🌸 Jasmim</h4>
+                        <p className="font-oracle-body text-sm opacity-75">Desperta a sensualidade, atrai o amor e fortalece vínculos afetivos</p>
+                      </div>
+
+                      <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <h4 className="font-oracle-subtitle text-lg">💰 Mirra</h4>
+                        <p className="font-oracle-body text-sm opacity-75">Atrai abundância material, protege contra inveja e purifica o ambiente</p>
+                      </div>
+
+                      <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <h4 className="font-oracle-subtitle text-lg">🧿 Olíbano</h4>
+                        <p className="font-oracle-body text-sm opacity-75">Fortalece a proteção espiritual, eleva a consciência e favorece rituais sagrados</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
               
               <div className="text-center mt-16">
                 <OracleButton
