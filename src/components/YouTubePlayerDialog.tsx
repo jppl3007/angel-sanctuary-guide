@@ -9,7 +9,7 @@ interface YouTubePlayerDialogProps {
   title?: string;
 }
 
-export function YouTubePlayerDialog({ open, onOpenChange, videoId, title = 'Reprodução de música' }: YouTubePlayerDialogProps) {
+export function YouTubePlayerDialog({ open, onOpenChange, videoId, title = 'Reproducción de música' }: YouTubePlayerDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-3xl">

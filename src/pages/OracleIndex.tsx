@@ -9,11 +9,11 @@ import { YouTubePlayerDialog } from '@/components/YouTubePlayerDialog';
 // Mock Oracle AI Response for demonstration
 const generateOracleReading = (name: string, birthDate: string) => {
   const themes = [
-    "Cura e Renovação Emocional",
-    "Prosperidade e Abundância", 
-    "Amor e Relacionamentos",
-    "Despertar da Intuição e Propósito",
-    "Coragem e Superação de Obstáculos"
+    "Sanación y Renovación Emocional",
+    "Prosperidad y Abundancia", 
+    "Amor y Relaciones",
+    "Despertar de la Intuición y Propósito",
+    "Coraje y Superación de Obstáculos"
   ];
   
   const archangels = ["Miguel", "Rafael", "Gabriel", "Uriel", "Jophiel", "Chamuel", "Zadkiel"];
@@ -25,32 +25,32 @@ const generateOracleReading = (name: string, birthDate: string) => {
   const crystal = crystals[Math.floor(Math.random() * crystals.length)];
   const color = colors[Math.floor(Math.random() * colors.length)];
   
-  return `## Sua Conexão Celestial
+  return `## Tu Conexión Celestial
 
-**Seu Anjo Guardião Principal:** Arcanjo ${archangel}, o Guardião da Transformação Sagrada
-**A Essência da Sua Ligação:** Uma luz dourada que dança entre os véus da realidade, conectando sua alma às frequências mais elevadas do universo.
+**Tu Ángel Guardián Principal:** Arcángel ${archangel}, el Guardián de la Transformación Sagrada
+**La Esencia de Tu Conexión:** Una luz dorada que danza entre los velos de la realidad, conectando tu alma con las frecuencias más elevadas del universo.
 
-## A Mensagem Central do Seu Anjo
+## El Mensaje Central de Tu Ángel
 
-Querido(a) ${name}, neste momento sagrado de sua jornada, os céus se abrem para revelar que você está no limiar de uma transformação profunda. Sua alma clama por renovação, e o universo conspira para trazer-lhe as oportunidades de crescimento que tanto deseja. Confie no processo divino que se desenrola em sua vida, pois cada desafio é uma semente de sabedoria sendo plantada em seu coração. O amor incondicional dos anjos o(a) envolve, trazendo cura para antigas feridas e abrindo caminhos para um futuro repleto de possibilidades luminosas.
+Querido(a) ${name}, en este momento sagrado de tu jornada, los cielos se abren para revelar que estás en el umbral de una transformación profunda. Tu alma clama por renovación, y el universo conspira para traerte las oportunidades de crecimiento que tanto deseas. Confía en el proceso divino que se desenvuelve en tu vida, pues cada desafío es una semilla de sabiduría siendo plantada en tu corazón. El amor incondicional de los ángeles te envuelve, trayendo sanación para antiguas heridas y abriendo caminos hacia un futuro repleto de posibilidades luminosas.
 
-## Espelho da Alma: Suas Energias Atuais
+## Espejo del Alma: Tus Energías Actuales
 
-**Sua Força Inata:** Você carrega em sua essência a capacidade única de transformar dor em sabedoria, sendo um farol de esperança para aqueles que cruzam seu caminho.
-**Seu Desafio Consciente:** Há uma tendência a duvidar de seu próprio valor, permitindo que vozes externas eclipsem a voz sábia de seu coração. É tempo de reconhecer sua luz interior.
-**Seu Foco de Energia:**
-* **Área para Atenção:** Crescimento Espiritual (momento de expansão da consciência e conexão com seu propósito superior)
-* **Cristal de Apoio:** ${crystal} (para amplificar sua intuição e proteger sua energia durante esta transformação)
-* **Cor de Vibração:** ${color} (para equilibrar suas emoções e atrair harmonia em todos os aspectos da vida)
+**Tu Fuerza Innata:** Llevas en tu esencia la capacidad única de transformar dolor en sabiduría, siendo un faro de esperanza para aquellos que cruzan tu camino.
+**Tu Desafío Consciente:** Existe una tendencia a dudar de tu propio valor, permitiendo que voces externas eclipsen la voz sabia de tu corazón. Es tiempo de reconocer tu luz interior.
+**Tu Enfoque de Energía:**
+* **Área de Atención:** Crecimiento Espiritual (momento de expansión de la conciencia y conexión con tu propósito superior)
+* **Cristal de Apoyo:** ${crystal} (para amplificar tu intuición y proteger tu energía durante esta transformación)
+* **Color de Vibración:** ${color} (para equilibrar tus emociones y atraer armonía en todos los aspectos de la vida)
 
-## Orientações Práticas Divinas
+## Orientaciones Prácticas Divinas
 
-**Sinal para Observar:** Nos próximos dias, observe a aparição de borboletas ou o som de sinos tocando ao vento. Estes são sinais de que seus anjos estão confirmando as decisões certas em seu coração.
-**Ritual Simples de Alinhamento:** Antes de dormir hoje, acenda uma vela branca e sussurre três vezes: "Eu me abro para receber a orientação divina com gratidão e confiança." Deixe a vela queimar por 10 minutos enquanto visualiza uma luz dourada preenchendo todo seu ser.
+**Señal para Observar:** En los próximos días, observa la aparición de mariposas o el sonido de campanas tocando al viento. Estas son señales de que tus ángeles están confirmando las decisiones correctas en tu corazón.
+**Ritual Simple de Alineación:** Antes de dormir hoy, enciende una vela blanca y susurra tres veces: "Me abro para recibir la orientación divina con gratitud y confianza." Deja que la vela arda por 10 minutos mientras visualizas una luz dorada llenando todo tu ser.
 
-## Um Olhar no Horizonte
+## Una Mirada al Horizonte
 
-Uma nova era de abundância emocional e espiritual desponta em seu horizonte, trazendo consigo a realização de sonhos que pareciam impossíveis e o despertar de dons que estavam adormecidos em sua alma.`;
+Una nueva era de abundancia emocional y espiritual despunta en tu horizonte, trayendo consigo la realización de sueños que parecían imposibles y el despertar de dones que estaban dormidos en tu alma.`;
 };
 
 const OracleIndex: React.FC = () => {
@@ -66,8 +66,8 @@ const OracleIndex: React.FC = () => {
   const handleRevealMessage = async () => {
     if (!name.trim() || !birthDate) {
       toast({
-        title: "Campos Obrigatórios",
-        description: "Por favor, preencha seu nome e data de nascimento para receber sua mensagem angelical.",
+        title: "Campos Obligatorios",
+        description: "Por favor, completa tu nombre y fecha de nacimiento para recibir tu mensaje angelical.",
         variant: "destructive"
       });
       return;
@@ -98,10 +98,10 @@ const OracleIndex: React.FC = () => {
         {/* Header */}
         <header className="text-center mb-16">
           <h1 className="font-oracle-title text-4xl md:text-6xl mb-6 animate-cosmic-shimmer">
-            Meu Oráculo Angelical
+            Mi Oráculo Angelical
           </h1>
           <p className="font-oracle-body text-lg md:text-xl max-w-2xl mx-auto">
-            Conecte-se com sua orientação divina personalizada através de uma experiência espiritual única e transformadora
+            Conéctate con tu orientación divina personalizada a través de una experiencia espiritual única y transformadora
           </p>
         </header>
 
@@ -113,12 +113,12 @@ const OracleIndex: React.FC = () => {
                 <div className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block font-oracle-subtitle text-sm mb-3">
-                      Seu Nome Sagrado
+                      Tu Nombre Sagrado
                     </label>
                     <OracleInput
                       id="name"
                       type="text"
-                      placeholder="Digite seu nome completo"
+                      placeholder="Escribe tu nombre completo"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
@@ -126,7 +126,7 @@ const OracleIndex: React.FC = () => {
                   
                   <div>
                     <label htmlFor="birthDate" className="block font-oracle-subtitle text-sm mb-3">
-                      Sua Data de Nascimento
+                      Tu Fecha de Nacimiento
                     </label>
                     <OracleInput
                       id="birthDate"
@@ -143,13 +143,13 @@ const OracleIndex: React.FC = () => {
                     className="w-full font-oracle-subtitle"
                     disabled={isLoading}
                   >
-                    ✦ Revelar Minha Mensagem Angelical ✦
+                    ✦ Revelar Mi Mensaje Angelical ✦
                   </OracleButton>
                 </div>
               </div>
 
               <p className="text-center font-oracle-body text-sm opacity-75">
-                Prepare seu coração para receber a sabedoria divina que os anjos têm para compartilhar com você
+                Prepara tu corazón para recibir la sabiduría divina que los ángeles tienen para compartir contigo
               </p>
             </div>
           )}
@@ -158,10 +158,10 @@ const OracleIndex: React.FC = () => {
             <div className="flex flex-col items-center justify-center py-20 animate-fade-in">
               <SacredGeometry className="mb-8" />
               <p className="font-oracle-title text-xl text-center max-w-md">
-                Os anjos estão preparando sua mensagem sagrada...
+                Los ángeles están preparando tu mensaje sagrado...
               </p>
               <p className="font-oracle-body text-center mt-4 opacity-75">
-                Mantenha seu coração aberto para receber a orientação divina
+                Mantén tu corazón abierto para recibir la orientación divina
               </p>
             </div>
           )}
@@ -174,10 +174,10 @@ const OracleIndex: React.FC = () => {
                 <div className="max-w-3xl mx-auto mt-16 mb-16">
                   <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
                     <h3 className="font-oracle-title text-2xl md:text-3xl mb-8 text-center">
-                      ✦ Explore Suas Orientações Divinas ✦
+                      ✦ Explora Tus Orientaciones Divinas ✦
                     </h3>
                     <p className="font-oracle-body text-center mb-8 opacity-90">
-                      Descubra as práticas sagradas que irão elevar sua vibração e transformar sua jornada espiritual
+                      Descubre las prácticas sagradas que elevarán tu vibración y transformarán tu jornada espiritual
                     </p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -189,8 +189,8 @@ const OracleIndex: React.FC = () => {
                       >
                         <div className="text-2xl">🎵</div>
                         <div className="text-center">
-                          <div className="font-oracle-subtitle">Harmonias Celestiais</div>
-                          <div className="font-oracle-body text-xs opacity-75">Frequências sagradas para sua alma</div>
+                          <div className="font-oracle-subtitle">Armonías Celestiales</div>
+                          <div className="font-oracle-body text-xs opacity-75">Frecuencias sagradas para tu alma</div>
                         </div>
                       </OracleButton>
                       
@@ -202,8 +202,8 @@ const OracleIndex: React.FC = () => {
                       >
                         <div className="text-2xl">🌿</div>
                         <div className="text-center">
-                          <div className="font-oracle-subtitle">Banhos de Ervas</div>
-                          <div className="font-oracle-body text-xs opacity-75">Rituais ancestrais de purificação</div>
+                          <div className="font-oracle-subtitle">Baños de Hierbas</div>
+                          <div className="font-oracle-body text-xs opacity-75">Rituales ancestrales de purificación</div>
                         </div>
                       </OracleButton>
                       
@@ -215,8 +215,8 @@ const OracleIndex: React.FC = () => {
                       >
                         <div className="text-2xl">🔥</div>
                         <div className="text-center">
-                          <div className="font-oracle-subtitle">Incensos Sagrados</div>
-                          <div className="font-oracle-body text-xs opacity-75">Fragrâncias que elevam a vibração</div>
+                          <div className="font-oracle-subtitle">Inciensos Sagrados</div>
+                          <div className="font-oracle-body text-xs opacity-75">Fragancias que elevan la vibración</div>
                         </div>
                       </OracleButton>
                     </div>
@@ -229,42 +229,42 @@ const OracleIndex: React.FC = () => {
                   <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
                     <div className="flex items-center justify-between mb-8">
                       <h3 className="font-oracle-title text-2xl md:text-3xl text-center flex-1">
-                        ✦ Harmonias Celestiais ✦
+                        ✦ Armonías Celestiales ✦
                       </h3>
                       <OracleButton
                         variant="mystical"
                         size="sm"
                         onClick={() => setCurrentSection('main')}
                       >
-                        ← Voltar
+                        ← Volver
                       </OracleButton>
                     </div>
                     <p className="font-oracle-body text-center mb-8 opacity-90">
-                      Eleve sua vibração com estas frequências sagradas escolhidas especialmente para você
+                      Eleva tu vibración con estas frecuencias sagradas elegidas especialmente para ti
                     </p>
                     
                     <div className="space-y-4">
                       <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg hover:border-primary/50 transition-all">
                         <div>
-                          <h4 className="font-oracle-subtitle text-lg">Frequências do Anjo da Guarda</h4>
-                          <p className="font-oracle-body text-sm opacity-75">Conecte-se com sua proteção divina</p>
+                          <h4 className="font-oracle-subtitle text-lg">Frecuencias del Ángel de la Guarda</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Conéctate con tu protección divina</p>
                         </div>
                          <OracleButton
                            variant="sacred"
                            size="sm"
                            onClick={() => {
-                             setSelectedVideo({ id: 'Dix5pfVpI8o', title: 'Frequências do Anjo da Guarda' });
+                             setSelectedVideo({ id: 'Dix5pfVpI8o', title: 'Frecuencias del Ángel de la Guarda' });
                              setPlayerOpen(true);
                            }}
                          >
-                           ▶ Escutar
+                           ▶ Escuchar
                          </OracleButton>
                       </div>
                       
                       <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg hover:border-primary/50 transition-all">
                         <div>
                           <h4 className="font-oracle-subtitle text-lg">Ondas de Paz Interior</h4>
-                          <p className="font-oracle-body text-sm opacity-75">Encontre serenidade e tranquilidade</p>
+                          <p className="font-oracle-body text-sm opacity-75">Encuentra serenidad y tranquilidad</p>
                         </div>
                          <OracleButton
                            variant="sacred"
@@ -274,24 +274,24 @@ const OracleIndex: React.FC = () => {
                              setPlayerOpen(true);
                            }}
                          >
-                           ▶ Escutar
+                           ▶ Escuchar
                          </OracleButton>
                       </div>
                       
                       <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg hover:border-primary/50 transition-all">
                         <div>
-                          <h4 className="font-oracle-subtitle text-lg">Magnetismo da Abundância</h4>
-                          <p className="font-oracle-body text-sm opacity-75">Atraia prosperidade e riqueza</p>
+                          <h4 className="font-oracle-subtitle text-lg">Magnetismo de la Abundancia</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Atrae prosperidad y riqueza</p>
                         </div>
                          <OracleButton
                            variant="sacred"
                            size="sm"
                            onClick={() => {
-                             setSelectedVideo({ id: 'DKm1qNXVz1Q', title: 'Magnetismo da Abundância' });
+                             setSelectedVideo({ id: 'DKm1qNXVz1Q', title: 'Magnetismo de la Abundancia' });
                              setPlayerOpen(true);
                            }}
                          >
-                           ▶ Escutar
+                           ▶ Escuchar
                          </OracleButton>
                       </div>
                     </div>
@@ -304,58 +304,58 @@ const OracleIndex: React.FC = () => {
                   <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
                     <div className="flex items-center justify-between mb-8">
                       <h3 className="font-oracle-title text-2xl md:text-3xl text-center flex-1">
-                        ✦ Banhos de Ervas Sagradas ✦
+                        ✦ Baños de Hierbas Sagradas ✦
                       </h3>
                       <OracleButton
                         variant="mystical"
                         size="sm"
                         onClick={() => setCurrentSection('main')}
                       >
-                        ← Voltar
+                        ← Volver
                       </OracleButton>
                     </div>
                     <p className="font-oracle-body text-center mb-8 opacity-90">
-                      Purifique sua energia com estes banhos ancestrais de cura e proteção
+                      Purifica tu energía con estos baños ancestrales de sanación y protección
                     </p>
                     
                     <div className="space-y-6">
                       <div className="p-6 bg-card/50 border border-card-border/50 rounded-lg">
-                        <h4 className="font-oracle-subtitle text-lg mb-3">🌿 Banho de Proteção e Limpeza</h4>
+                        <h4 className="font-oracle-subtitle text-lg mb-3">🌿 Baño de Protección y Limpieza</h4>
                         <p className="font-oracle-body text-sm mb-4 opacity-90">
-                          <strong>Ingredientes:</strong> 7 folhas de arruda, 3 ramos de guiné, 1 punhado de sal grosso, pétalas de rosa branca
+                          <strong>Ingredientes:</strong> 7 hojas de ruda, 3 ramas de abre caminos, 1 puñado de sal gruesa, pétalos de rosa blanca
                         </p>
                         <p className="font-oracle-body text-sm opacity-75">
-                          <strong>Finalidade:</strong> Remove energias negativas, corta demandas espirituais e fortalece sua proteção áurica
+                          <strong>Finalidad:</strong> Remueve energías negativas, corta demandas espirituales y fortalece tu protección áurica
                         </p>
                       </div>
                       
                       <div className="p-6 bg-card/50 border border-card-border/50 rounded-lg">
-                        <h4 className="font-oracle-subtitle text-lg mb-3">💝 Banho do Amor Próprio</h4>
+                        <h4 className="font-oracle-subtitle text-lg mb-3">💝 Baño del Amor Propio</h4>
                         <p className="font-oracle-body text-sm mb-4 opacity-90">
-                          <strong>Ingredientes:</strong> Pétalas de rosa vermelha e rosa, canela em pau, mel, água de rosas
+                          <strong>Ingredientes:</strong> Pétalos de rosa roja y rosada, canela en rama, miel, agua de rosas
                         </p>
                         <p className="font-oracle-body text-sm opacity-75">
-                          <strong>Finalidade:</strong> Desperta o amor próprio, atrai relacionamentos saudáveis e aumenta a autoestima
+                          <strong>Finalidad:</strong> Despierta el amor propio, atrae relaciones saludables y aumenta la autoestima
                         </p>
                       </div>
                       
                       <div className="p-6 bg-card/50 border border-card-border/50 rounded-lg">
-                        <h4 className="font-oracle-subtitle text-lg mb-3">🍀 Banho da Prosperidade</h4>
+                        <h4 className="font-oracle-subtitle text-lg mb-3">🍀 Baño de la Prosperidad</h4>
                         <p className="font-oracle-body text-sm mb-4 opacity-90">
-                          <strong>Ingredientes:</strong> Folhas de louro, manjericão, canela em pó, moedas douradas, açúcar cristal
+                          <strong>Ingredientes:</strong> Hojas de laurel, albahaca, canela en polvo, monedas doradas, azúcar cristal
                         </p>
                         <p className="font-oracle-body text-sm opacity-75">
-                          <strong>Finalidade:</strong> Atrai abundância financeira, abre caminhos profissionais e magnetiza oportunidades
+                          <strong>Finalidad:</strong> Atrae abundancia financiera, abre caminos profesionales y magnetiza oportunidades
                         </p>
                       </div>
 
                       <div className="p-6 bg-card/50 border border-card-border/50 rounded-lg">
-                        <h4 className="font-oracle-subtitle text-lg mb-3">🌙 Banho da Intuição</h4>
+                        <h4 className="font-oracle-subtitle text-lg mb-3">🌙 Baño de la Intuición</h4>
                         <p className="font-oracle-body text-sm mb-4 opacity-90">
-                          <strong>Ingredientes:</strong> Folhas de artemísia, lavanda, alecrim, água da lua cheia, ametista pequena
+                          <strong>Ingredientes:</strong> Hojas de artemisa, lavanda, romero, agua de luna llena, amatista pequeña
                         </p>
                         <p className="font-oracle-body text-sm opacity-75">
-                          <strong>Finalidade:</strong> Desenvolve capacidades psíquicas, fortalece a intuição e conecta com guias espirituais
+                          <strong>Finalidad:</strong> Desarrolla capacidades psíquicas, fortalece la intuición y conecta con guías espirituales
                         </p>
                       </div>
                     </div>
@@ -368,44 +368,44 @@ const OracleIndex: React.FC = () => {
                   <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
                     <div className="flex items-center justify-between mb-8">
                       <h3 className="font-oracle-title text-2xl md:text-3xl text-center flex-1">
-                        ✦ Incensos Sagrados ✦
+                        ✦ Inciensos Sagrados ✦
                       </h3>
                       <OracleButton
                         variant="mystical"
                         size="sm"
                         onClick={() => setCurrentSection('main')}
                       >
-                        ← Voltar
+                        ← Volver
                       </OracleButton>
                     </div>
                     <p className="font-oracle-body text-center mb-8 opacity-90">
-                      Transforme o ambiente com estas fragrâncias celestiais que elevam a vibração do lar
+                      Transforma el ambiente con estas fragancias celestiales que elevan la vibración del hogar
                     </p>
                     
                     <div className="space-y-4">
                       <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
-                        <h4 className="font-oracle-subtitle text-lg">🔥 Sândalo</h4>
-                        <p className="font-oracle-body text-sm opacity-75">Promove serenidade, facilita a meditação e conecta com energias superiores</p>
+                        <h4 className="font-oracle-subtitle text-lg">🔥 Sándalo</h4>
+                        <p className="font-oracle-body text-sm opacity-75">Promueve serenidad, facilita la meditación y conecta con energías superiores</p>
                       </div>
                       
                       <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
                         <h4 className="font-oracle-subtitle text-lg">⚡ Palo Santo</h4>
-                        <p className="font-oracle-body text-sm opacity-75">Limpa energias densas, protege o ambiente e atrai paz espiritual</p>
+                        <p className="font-oracle-body text-sm opacity-75">Limpia energías densas, protege el ambiente y atrae paz espiritual</p>
                       </div>
                       
                       <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
-                        <h4 className="font-oracle-subtitle text-lg">🌸 Jasmim</h4>
-                        <p className="font-oracle-body text-sm opacity-75">Desperta a sensualidade, atrai o amor e fortalece vínculos afetivos</p>
+                        <h4 className="font-oracle-subtitle text-lg">🌸 Jazmín</h4>
+                        <p className="font-oracle-body text-sm opacity-75">Despierta la sensualidad, atrae el amor y fortalece vínculos afectivos</p>
                       </div>
 
                       <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
                         <h4 className="font-oracle-subtitle text-lg">💰 Mirra</h4>
-                        <p className="font-oracle-body text-sm opacity-75">Atrai abundância material, protege contra inveja e purifica o ambiente</p>
+                        <p className="font-oracle-body text-sm opacity-75">Atrae abundancia material, protege contra envidia y purifica el ambiente</p>
                       </div>
 
                       <div className="p-4 bg-card/50 border border-card-border/50 rounded-lg">
                         <h4 className="font-oracle-subtitle text-lg">🧿 Olíbano</h4>
-                        <p className="font-oracle-body text-sm opacity-75">Fortalece a proteção espiritual, eleva a consciência e favorece rituais sagrados</p>
+                        <p className="font-oracle-body text-sm opacity-75">Fortalece la protección espiritual, eleva la conciencia y favorece rituales sagrados</p>
                       </div>
                     </div>
                   </div>
@@ -427,7 +427,7 @@ const OracleIndex: React.FC = () => {
         {/* Footer */}
         <footer className="text-center mt-20">
           <p className="font-oracle-body text-sm opacity-60">
-            Que a luz dos anjos ilumine sempre seu caminho
+            Que la luz de los ángeles ilumine siempre tu camino
           </p>
         </footer>
       </div>
