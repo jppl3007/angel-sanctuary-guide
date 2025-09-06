@@ -246,13 +246,20 @@ const OracleIndex: React.FC = () => {
                           <h4 className="font-oracle-subtitle text-lg">Frequências do Anjo da Guarda</h4>
                           <p className="font-oracle-body text-sm opacity-75">Conecte-se com sua proteção divina</p>
                         </div>
-                        <OracleButton
-                          variant="sacred"
-                          size="sm"
-                          onClick={() => window.open('https://www.youtube.com/watch?v=Dix5pfVpI8o&list=RDDix5pfVpI8o&start_radio=1', '_blank')}
-                        >
-                          ▶ Escutar
-                        </OracleButton>
+                         <OracleButton
+                           variant="sacred"
+                           size="sm"
+                           onClick={() => {
+                             const url = 'https://www.youtube.com/watch?v=Dix5pfVpI8o&list=RDDix5pfVpI8o&start_radio=1';
+                             const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+                             if (!newWindow) {
+                               // Fallback if popup blocked
+                               window.location.href = url;
+                             }
+                           }}
+                         >
+                           ▶ Escutar
+                         </OracleButton>
                       </div>
                       
                       <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg hover:border-primary/50 transition-all">
@@ -260,13 +267,20 @@ const OracleIndex: React.FC = () => {
                           <h4 className="font-oracle-subtitle text-lg">Ondas de Paz Interior</h4>
                           <p className="font-oracle-body text-sm opacity-75">Encontre serenidade e tranquilidade</p>
                         </div>
-                        <OracleButton
-                          variant="sacred"
-                          size="sm"
-                          onClick={() => window.open('https://www.youtube.com/watch?v=HyI8o_EA3os&list=RDHyI8o_EA3os&start_radio=1', '_blank')}
-                        >
-                          ▶ Escutar
-                        </OracleButton>
+                         <OracleButton
+                           variant="sacred"
+                           size="sm"
+                           onClick={() => {
+                             const url = 'https://www.youtube.com/watch?v=HyI8o_EA3os&list=RDHyI8o_EA3os&start_radio=1';
+                             const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+                             if (!newWindow) {
+                               // Fallback if popup blocked
+                               window.location.href = url;
+                             }
+                           }}
+                         >
+                           ▶ Escutar
+                         </OracleButton>
                       </div>
                       
                       <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg hover:border-primary/50 transition-all">
@@ -274,13 +288,20 @@ const OracleIndex: React.FC = () => {
                           <h4 className="font-oracle-subtitle text-lg">Magnetismo da Abundância</h4>
                           <p className="font-oracle-body text-sm opacity-75">Atraia prosperidade e riqueza</p>
                         </div>
-                        <OracleButton
-                          variant="sacred"
-                          size="sm"
-                          onClick={() => window.open('https://www.youtube.com/watch?v=DKm1qNXVz1Q&list=RDDKm1qNXVz1Q&start_radio=1', '_blank')}
-                        >
-                          ▶ Escutar
-                        </OracleButton>
+                         <OracleButton
+                           variant="sacred"
+                           size="sm"
+                           onClick={() => {
+                             const url = 'https://www.youtube.com/watch?v=DKm1qNXVz1Q&list=RDDKm1qNXVz1Q&start_radio=1';
+                             const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+                             if (!newWindow) {
+                               // Fallback if popup blocked
+                               window.location.href = url;
+                             }
+                           }}
+                         >
+                           ▶ Escutar
+                         </OracleButton>
                       </div>
                     </div>
                   </div>
