@@ -4,6 +4,7 @@ import { OracleInput } from '@/components/ui/oracle-input';
 import { SacredGeometry } from '@/components/SacredGeometry';
 import { RevelationText } from '@/components/RevelationText';
 import { toast } from '@/hooks/use-toast';
+import { YouTubePlayerDialog } from '@/components/YouTubePlayerDialog';
 
 // Mock Oracle AI Response for demonstration
 const generateOracleReading = (name: string, birthDate: string) => {
@@ -59,6 +60,8 @@ const OracleIndex: React.FC = () => {
   const [oracleReading, setOracleReading] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(true);
   const [currentSection, setCurrentSection] = useState<'main' | 'music' | 'herbs' | 'incense'>('main');
+  const [playerOpen, setPlayerOpen] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState<{ id: string; title: string } | null>(null);
 
   const handleRevealMessage = async () => {
     if (!name.trim() || !birthDate) {
@@ -250,12 +253,8 @@ const OracleIndex: React.FC = () => {
                            variant="sacred"
                            size="sm"
                            onClick={() => {
-                             const url = 'https://www.youtube.com/watch?v=Dix5pfVpI8o&list=RDDix5pfVpI8o&start_radio=1';
-                             const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-                             if (!newWindow) {
-                               // Fallback if popup blocked
-                               window.location.href = url;
-                             }
+                             setSelectedVideo({ id: 'Dix5pfVpI8o', title: 'Frequências do Anjo da Guarda' });
+                             setPlayerOpen(true);
                            }}
                          >
                            ▶ Escutar
@@ -271,12 +270,8 @@ const OracleIndex: React.FC = () => {
                            variant="sacred"
                            size="sm"
                            onClick={() => {
-                             const url = 'https://www.youtube.com/watch?v=HyI8o_EA3os&list=RDHyI8o_EA3os&start_radio=1';
-                             const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-                             if (!newWindow) {
-                               // Fallback if popup blocked
-                               window.location.href = url;
-                             }
+                             setSelectedVideo({ id: 'HyI8o_EA3os', title: 'Ondas de Paz Interior' });
+                             setPlayerOpen(true);
                            }}
                          >
                            ▶ Escutar
@@ -292,12 +287,8 @@ const OracleIndex: React.FC = () => {
                            variant="sacred"
                            size="sm"
                            onClick={() => {
-                             const url = 'https://www.youtube.com/watch?v=DKm1qNXVz1Q&list=RDDKm1qNXVz1Q&start_radio=1';
-                             const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-                             if (!newWindow) {
-                               // Fallback if popup blocked
-                               window.location.href = url;
-                             }
+                             setSelectedVideo({ id: 'DKm1qNXVz1Q', title: 'Magnetismo da Abundância' });
+                             setPlayerOpen(true);
                            }}
                          >
                            ▶ Escutar
@@ -421,7 +412,15 @@ const OracleIndex: React.FC = () => {
                 </div>
               )}
               
-            </div>
+              {selectedVideo && (
+                <YouTubePlayerDialog
+                  open={playerOpen}
+                  onOpenChange={setPlayerOpen}
+                  videoId={selectedVideo.id}
+                  title={selectedVideo.title}
+                />
+              )}
+              </div>
           )}
         </main>
 
