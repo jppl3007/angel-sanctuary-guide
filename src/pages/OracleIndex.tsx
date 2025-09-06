@@ -400,15 +400,6 @@ const OracleIndex: React.FC = () => {
                 </div>
               )}
               
-              <div className="text-center mt-16">
-                <OracleButton
-                  variant="mystical"
-                  onClick={resetReading}
-                  className="font-oracle-subtitle"
-                >
-                  ✦ Nova Consulta Angelical ✦
-                </OracleButton>
-              </div>
             </div>
           )}
         </main>
