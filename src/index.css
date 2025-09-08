@@ -60,7 +60,6 @@ All colors MUST be HSL for the mystical theme.
 
   body {
     @apply bg-gradient-to-br from-[hsl(var(--background))] to-[hsl(var(--background-end))] text-foreground min-h-screen;
-    background-attachment: fixed;
     position: relative;
     font-family: 'Montserrat', sans-serif;
   }
@@ -75,10 +74,17 @@ All colors MUST be HSL for the mystical theme.
     background-image: url('/src/assets/cosmic-nebula-bg.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     opacity: 0.12;
     filter: blur(1px);
     z-index: -1;
+  }
+
+  /* Mobile-specific fixes */
+  @media (max-width: 768px) {
+    body::before {
+      position: absolute;
+      min-height: 100vh;
+    }
   }
 
   /* Sacred Typography */

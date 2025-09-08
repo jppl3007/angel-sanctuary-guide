@@ -93,7 +93,7 @@ const OracleIndex: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-8">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
       <div className="w-full max-w-4xl mx-auto">
         {/* Header */}
         <header className="text-center mb-16">
