@@ -85,6 +85,16 @@ All colors MUST be HSL for the mystical theme.
       position: absolute;
       min-height: 100vh;
     }
+    
+    /* Make cards more opaque on mobile for better visibility */
+    .bg-card {
+      background-color: hsl(var(--background) / 0.85) !important;
+      backdrop-filter: blur(10px);
+    }
+    
+    .bg-card\/50 {
+      background-color: hsl(var(--background) / 0.75) !important;
+    }
   }
 
   /* Sacred Typography */
