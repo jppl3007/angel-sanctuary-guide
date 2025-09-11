@@ -59,7 +59,7 @@ const OracleIndex: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [oracleReading, setOracleReading] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(true);
-  const [currentSection, setCurrentSection] = useState<'main' | 'music' | 'herbs' | 'incense' | 'hierarchy' | 'numbers' | 'tarot'>('main');
+  const [currentSection, setCurrentSection] = useState<'main' | 'music' | 'herbs' | 'incense' | 'hierarchy' | 'numbers' | 'tarot' | 'abilities' | 'reiki' | 'messages' | 'wellness'>('main');
   const [playerOpen, setPlayerOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<{ id: string; title: string } | null>(null);
 
@@ -211,6 +211,47 @@ const OracleIndex: React.FC = () => {
                         <span className="text-3xl">🃏</span>
                         <span className="font-oracle-subtitle text-base">Tarot de Ángeles</span>
                         <span className="font-oracle-body text-xs opacity-75">Guía básica</span>
+                      </OracleButton>
+                      {/* Novos 4 botões */}
+                      <OracleButton
+                        variant="sacred"
+                        size="lg"
+                        onClick={() => setCurrentSection('abilities')}
+                        className="h-auto p-6 flex flex-col items-center justify-center space-y-2 text-center"
+                      >
+                        <span className="text-3xl">✨</span>
+                        <span className="font-oracle-subtitle text-base">Habilidades Espirituales</span>
+                        <span className="font-oracle-body text-xs opacity-75">Desbloquea tu potencial</span>
+                      </OracleButton>
+                      <OracleButton
+                        variant="sacred"
+                        size="lg"
+                        onClick={() => setCurrentSection('reiki')}
+                        className="h-auto p-6 flex flex-col items-center justify-center space-y-2 text-center"
+                      >
+                        <span className="text-3xl">🙌</span>
+                        <span className="font-oracle-subtitle text-base">Reiki Angelical</span>
+                        <span className="font-oracle-body text-xs opacity-75">Sanación divina</span>
+                      </OracleButton>
+                      <OracleButton
+                        variant="sacred"
+                        size="lg"
+                        onClick={() => setCurrentSection('messages')}
+                        className="h-auto p-6 flex flex-col items-center justify-center space-y-2 text-center"
+                      >
+                        <span className="text-3xl">📩</span>
+                        <span className="font-oracle-subtitle text-base">Mensajes Angelicales</span>
+                        <span className="font-oracle-body text-xs opacity-75">Reconoce las señales</span>
+                      </OracleButton>
+                      <OracleButton
+                        variant="sacred"
+                        size="lg"
+                        onClick={() => setCurrentSection('wellness')}
+                        className="h-auto p-6 flex flex-col items-center justify-center space-y-2 text-center"
+                      >
+                        <span className="text-3xl">🧘</span>
+                        <span className="font-oracle-subtitle text-base">Bienestar Espiritual</span>
+                        <span className="font-oracle-body text-xs opacity-75">Reduce estrés y elévate</span>
                       </OracleButton>
                       <OracleButton
                         variant="sacred"
@@ -480,6 +521,245 @@ const OracleIndex: React.FC = () => {
                 </div>
               )}
 
+              {/* Conteúdo das novas seções */}
+              {currentSection === 'abilities' && (
+                <div className="max-w-3xl mx-auto mt-16 mb-16">
+                  <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
+                    <div className="flex items-center justify-between mb-8">
+                      <h3 className="font-oracle-title text-2xl md:text-3xl text-center flex-1">✦ Habilidades Espirituales ✦</h3>
+                      <OracleButton variant="mystical" size="sm" onClick={() => setCurrentSection('main')}>← Volver</OracleButton>
+                    </div>
+                    <p className="font-oracle-body text-center mb-8 opacity-90">Todos nacemos con dones espirituales. Aprende a desbloquear y desarrollar tu potencial divino:</p>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🔮 Intuición y Clarividencia</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Practica la meditación diaria para silenciar la mente racional. Presta atención a tus primeras impresiones sobre personas y situaciones. Lleva un diario de sueños y visiones.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>👁️</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">👂 Clariaudiencia</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Escucha en silencio profundo. Los mensajes pueden llegar como susurros, música o palabras espontáneas. Confía en las ideas que aparecen sin esfuerzo en tu mente.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🎵</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">💝 Empatía Espiritual</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Aprende a proteger tu energía con visualizaciones de luz blanca. Distingue entre tus emociones y las de otros. Usa tu sensibilidad para sanar y ayudar.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>❤️</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🙌 Sanación Energética</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Coloca tus manos sobre plantas o animales y siente el flujo de energía. Practica enviando amor y luz a personas que necesiten sanación. Desarrolla la imposición de manos.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>✨</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🔗 Comunicación Angelical</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Invoca a tus ángeles diariamente. Haz preguntas específicas y observa las respuestas en forma de señales, números, sensaciones o inspiraciones súbitas que llegan a tu corazón.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>👼</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🌟 Manifestación Consciente</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Visualiza tus deseos con emoción positiva. Actúa como si ya hubieras recibido lo que pides. Mantén gratitud constante y suelta el control de los tiempos divinos.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🎯</OracleButton>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {currentSection === 'reiki' && (
+                <div className="max-w-3xl mx-auto mt-16 mb-16">
+                  <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
+                    <div className="flex items-center justify-between mb-8">
+                      <h3 className="font-oracle-title text-2xl md:text-3xl text-center flex-1">✦ Reiki Angelical ✦</h3>
+                      <OracleButton variant="mystical" size="sm" onClick={() => setCurrentSection('main')}>← Volver</OracleButton>
+                    </div>
+                    <p className="font-oracle-body text-center mb-8 opacity-90">Combina la energía universal del Reiki con la guía angelical para una sanación profunda y transformadora:</p>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🕯️ Preparación del Espacio Sagrado</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Enciende velas blancas y incienso de sándalo. Invoca a los Arcángeles Rafael (sanación), Miguel (protección), Gabriel (comunicación) y Uriel (sabiduría) para asistir en la sesión.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🕯️</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🙏 Invocación Angelical</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Antes de canalizar Reiki, pide a tus ángeles que dirijan la energía hacia donde sea más necesaria. Solicita que transmuten cualquier energía densa en luz pura y amor divino.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>👼</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">✋ Imposición de Manos Angelical</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Coloca tus manos sobre los chakras mientras visualizas ángeles colocando sus manos sobre las tuyas. Siente cómo la energía dorada fluye desde las dimensiones celestiales hacia la persona.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🙌</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">💎 Símbolos Sagrados</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Combina los símbolos tradicionales de Reiki con símbolos angelicales que recibas intuitivamente. Visualiza alas de ángel abrazando a la persona durante la sanación.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>📜</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🌈 Sanación de Cuerpos Sutiles</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Trabaja no solo en el cuerpo físico, sino también en los cuerpos emocional, mental y espiritual. Los ángeles pueden mostrar bloqueos energéticos como sombras que necesitan luz.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🔮</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">💝 Integración y Cierre</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Termina agradeciendo a los ángeles y sellando la sanación con amor incondicional. Pide que la persona integre la energía angelical gradualmente y con gracia divina.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🙏</OracleButton>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {currentSection === 'messages' && (
+                <div className="max-w-3xl mx-auto mt-16 mb-16">
+                  <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
+                    <div className="flex items-center justify-between mb-8">
+                      <h3 className="font-oracle-title text-2xl md:text-3xl text-center flex-1">✦ Mensajes Angelicales ✦</h3>
+                      <OracleButton variant="mystical" size="sm" onClick={() => setCurrentSection('main')}>← Volver</OracleButton>
+                    </div>
+                    <p className="font-oracle-body text-center mb-8 opacity-90">Los ángeles se comunican constantemente contigo. Aprende a reconocer y interpretar sus señales divinas:</p>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🔢 Números Repetitivos</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Cuando veas 11:11, 333, 444 frecuentemente, son mensajes directos. Cada secuencia tiene un significado específico. Anota cuándo y dónde los ves para entender el contexto.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🔢</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🪶 Plumas en el Camino</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Encontrar plumas, especialmente blancas, es una señal angelical clásica. Significa que estás protegido y que tus oraciones han sido escuchadas. Guárdalas como recordatorio del amor divino.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🪶</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🦋 Animales Mensajeros</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Mariposas, libélulas, pájaros que aparecen repetidamente son mensajeros angelicales. Cada animal tiene un simbolismo único. Presta atención a su comportamiento y momento de aparición.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🦋</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🎵 Sonidos y Música</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Escuchar campanas sin fuente aparente, música celestial o canciones que responden a tus preguntas son comunicaciones angelicales. Los ángeles usan la vibración sonora para transmitir amor.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🎶</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">💡 Pensamientos Inspiradores</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Ideas brillantes que llegan de repente, especialmente soluciones a problemas, son inspiraciones angelicales. Estos pensamientos vienen con paz y claridad, nunca con miedo o prisa.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>💡</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🌈 Señales en el Cielo</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Arcoíris inesperados, nubes con formas significativas, destellos de luz sin explicación son señales celestiales de bendición y confirmación de que estás en el camino correcto.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🌈</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">👥 Personas Ángel</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Extraños que aparecen en el momento exacto para ayudarte, con las palabras perfectas o la asistencia que necesitas, son ángeles en forma humana enviados para apoyarte en tu jornada.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>😇</OracleButton>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {currentSection === 'wellness' && (
+                <div className="max-w-3xl mx-auto mt-16 mb-16">
+                  <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
+                    <div className="flex items-center justify-between mb-8">
+                      <h3 className="font-oracle-title text-2xl md:text-3xl text-center flex-1">✦ Bienestar Espiritual ✦</h3>
+                      <OracleButton variant="mystical" size="sm" onClick={() => setCurrentSection('main')}>← Volver</OracleButton>
+                    </div>
+                    <p className="font-oracle-body text-center mb-8 opacity-90">Técnicas sagradas para reducir el estrés, elevar tu vibración y encontrar paz interior duradera:</p>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🧘 Meditación Angelical</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Siéntate en silencio, respira profundo y visualiza luz dorada llenando tu cuerpo. Invoca a tu ángel guardián y permanece receptivo. Incluso 10 minutos diarios transforman tu energía.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🧘</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🌬️ Respiración Consciente</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Practica respiración 4-7-8: inhala por 4, mantén por 7, exhala por 8 tiempos. Con cada exhalación, libera estrés y tensión. Con cada inhalación, recibe paz divina.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>💨</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🙏 Oración de Gratitud</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Al despertar y antes de dormir, agradece tres cosas específicas. La gratitud sincera eleva instantáneamente tu vibración y atrae más bendiciones a tu vida.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>💝</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🛁 Baños de Luz</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Añade sal marina y aceites esenciales al agua. Visualiza luz violeta purificando tu aura. Pide a los ángeles que disuelvan cualquier energía que no te pertenezca o que ya no necesites.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🛁</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🌿 Conexión con la Naturaleza</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Camina descalzo sobre tierra o césped. Abraza árboles y siente su energía sanadora. La naturaleza es el templo natural donde los ángeles se manifiestan más fácilmente.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🌳</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🎨 Expresión Creativa</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Dibuja, canta, baila o escribe desde el corazón. La creatividad es un canal directo para la energía angelical. No busques perfección, busca expresión auténtica de tu alma.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🎨</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">💤 Sueño Sagrado</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Antes de dormir, pide a tus ángeles que te visiten en sueños con mensajes y sanación. Mantén un cuaderno junto a la cama para registrar las inspiraciones que recibas.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🌙</OracleButton>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {currentSection === 'music' && (
                 <div className="max-w-3xl mx-auto mt-16 mb-16">
                   <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
@@ -676,7 +956,7 @@ const OracleIndex: React.FC = () => {
                   title={selectedVideo.title}
                 />
               )}
-              </div>
+            </div>
           )}
         </main>
 
