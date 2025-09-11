@@ -59,7 +59,7 @@ const OracleIndex: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [oracleReading, setOracleReading] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(true);
-  const [currentSection, setCurrentSection] = useState<'main' | 'music' | 'herbs' | 'incense'>('main');
+  const [currentSection, setCurrentSection] = useState<'main' | 'music' | 'herbs' | 'incense' | 'hierarchy' | 'numbers' | 'tarot'>('main');
   const [playerOpen, setPlayerOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<{ id: string; title: string } | null>(null);
 
@@ -181,6 +181,37 @@ const OracleIndex: React.FC = () => {
                     </p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {/* Novos botões */}
+                      <OracleButton
+                        variant="sacred"
+                        size="lg"
+                        onClick={() => setCurrentSection('hierarchy')}
+                        className="h-auto p-6 flex flex-col items-center justify-center space-y-2 text-center"
+                      >
+                        <span className="text-3xl">👼</span>
+                        <span className="font-oracle-subtitle text-base">Jerarquía</span>
+                        <span className="font-oracle-body text-xs opacity-75">Niveles y funciones</span>
+                      </OracleButton>
+                      <OracleButton
+                        variant="sacred"
+                        size="lg"
+                        onClick={() => setCurrentSection('numbers')}
+                        className="h-auto p-6 flex flex-col items-center justify-center space-y-2 text-center"
+                      >
+                        <span className="text-3xl">🔢</span>
+                        <span className="font-oracle-subtitle text-base">Números</span>
+                        <span className="font-oracle-body text-xs opacity-75">Significado espiritual</span>
+                      </OracleButton>
+                      <OracleButton
+                        variant="sacred"
+                        size="lg"
+                        onClick={() => setCurrentSection('tarot')}
+                        className="h-auto p-6 flex flex-col items-center justify-center space-y-2 text-center"
+                      >
+                        <span className="text-3xl">🃏</span>
+                        <span className="font-oracle-subtitle text-base">Tarot de Ángeles</span>
+                        <span className="font-oracle-body text-xs opacity-75">Guía básica</span>
+                      </OracleButton>
                       <OracleButton
                         variant="sacred"
                         size="lg"
@@ -219,6 +250,231 @@ const OracleIndex: React.FC = () => {
                           <div className="font-oracle-body text-xs opacity-75">Fragancias que elevan la vibración</div>
                         </div>
                       </OracleButton>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Conteúdo dos novos botões */}
+              {currentSection === 'hierarchy' && (
+                <div className="max-w-3xl mx-auto mt-16 mb-16">
+                  <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
+                    <div className="flex items-center justify-between mb-8">
+                      <h3 className="font-oracle-title text-2xl md:text-3xl text-center flex-1">✦ Jerarquía de los Ángeles ✦</h3>
+                      <OracleButton variant="mystical" size="sm" onClick={() => setCurrentSection('main')}>← Volver</OracleButton>
+                    </div>
+                    <p className="font-oracle-body text-center mb-8 opacity-90">Los ángeles se organizan en nueve coros celestiales, cada uno con funciones específicas para guiar y proteger a la humanidad:</p>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🔥 Serafines</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Los más cercanos al trono divino. Purificadores de almas, transmiten amor incondicional y elevan la vibración espiritual. Invocarlos para limpieza energética profunda.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>✨</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">👁️ Querubines</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Guardianes de la sabiduría divina y el conocimiento celestial. Ayudan en estudios, decisiones importantes y el despertar de la consciencia superior.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>📚</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">⚖️ Tronos</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Portadores de la justicia divina y el equilibrio universal. Median en conflictos, restauran la armonía y traen paz a situaciones caóticas.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>⚖️</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">👑 Dominaciones</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Supervisan las misiones angelicales y mantienen el orden cósmico. Ayudan a desarrollar liderazgo espiritual y autocontrol emocional.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>👑</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">⭐ Virtudes</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Canalizan milagros y energías de sanación. Fortalecen la fe, conceden gracias especiales y facilitan curaciones físicas y emocionales.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>💫</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">⚔️ Poderes</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Guerreros celestiales que defienden contra energías negativas y protegen el mundo espiritual. Liberan de ataduras y rompen maldiciones.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🛡️</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🌍 Principados</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Guían naciones, comunidades y grupos hacia la armonía. Protegen ciudades, organizaciones y movimientos espirituales colectivos.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🏛️</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">👼 Arcángeles</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Mensajeros principales entre el cielo y la tierra. Miguel (protección), Gabriel (comunicación), Rafael (sanación), Uriel (sabiduría) y otros grandes emisarios divinos.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>�</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🪽 Ángeles</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Protectores personales y guías espirituales de cada individuo. Tu ángel guardián, compañeros de vida que susurran orientación y consuelo en momentos de necesidad.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>💝</OracleButton>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {currentSection === 'numbers' && (
+                <div className="max-w-3xl mx-auto mt-16 mb-16">
+                  <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
+                    <div className="flex items-center justify-between mb-8">
+                      <h3 className="font-oracle-title text-2xl md:text-3xl text-center flex-1">✦ Números Repetidos ✦</h3>
+                      <OracleButton variant="mystical" size="sm" onClick={() => setCurrentSection('main')}>← Volver</OracleButton>
+                    </div>
+                    <p className="font-oracle-body text-center mb-8 opacity-90">Los ángeles se comunican a través de secuencias numéricas. Cuando veas estos números repetidamente, es una señal divina:</p>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">111 - Portal de Manifestación</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Nuevos comienzos, pensamientos se vuelven realidad rápidamente. Mantén pensamientos positivos y enfócate en tus deseos más elevados. Es momento de sembrar intenciones.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>1️⃣</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">222 - Equilibrio y Fe</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Mantén la fe en el proceso divino. Busca equilibrio en todas las áreas de tu vida. Las relaciones y asociaciones están siendo bendecidas. Paciencia y diplomacia.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>2️⃣</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">333 - Maestros Ascendidos</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Los maestros ascendidos (Jesús, Buda, santos) están cerca. Momento de crecimiento espiritual acelerado. Expresa tu creatividad y enseña lo que has aprendido.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>3️⃣</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">444 - Protección Angelical</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Miles de ángeles te rodean. Estás completamente protegido y amado. Es seguro seguir tu camino actual. Tus oraciones han sido escuchadas y serán respondidas.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>4️⃣</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">555 - Cambio Divino</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Transformaciones importantes se acercan. Libérate de lo que ya no te sirve. Los cambios que vienen son para tu mayor bien espiritual. Abraza lo nuevo con confianza.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>5️⃣</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">666 - Reequilibrio Espiritual</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Momento de reevaluar prioridades. Equilibra lo material con lo espiritual. No temas, solo es una llamada a elevar tus pensamientos hacia el amor y la luz divina.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>6️⃣</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">777 - Milagros y Bendiciones</h4>
+                          <p className="font-oracle-body text-sm opacity-75">¡Felicitaciones! Estás en sincronía perfecta con el universo. Milagros están manifestándose. Tu vida espiritual está floreciendo. Confía en tu intuición.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>7️⃣</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">888 - Abundancia Infinita</h4>
+                          <p className="font-oracle-body text-sm opacity-75">La abundancia financiera y material está llegando. Un ciclo de logros se completa. Tu trabajo duro está siendo recompensado por el universo de manera extraordinaria.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>8️⃣</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">999 - Misión de Vida</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Culminación y servicio a los demás. Es hora de compartir tus dones con el mundo. Un capítulo importante termina para dar paso a tu verdadero propósito de vida.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>9️⃣</OracleButton>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {currentSection === 'tarot' && (
+                <div className="max-w-3xl mx-auto mt-16 mb-16">
+                  <div className="bg-card border border-card-border rounded-xl p-8 backdrop-blur-sm golden-glow">
+                    <div className="flex items-center justify-between mb-8">
+                      <h3 className="font-oracle-title text-2xl md:text-3xl text-center flex-1">✦ Tarot de los Ángeles ✦</h3>
+                      <OracleButton variant="mystical" size="sm" onClick={() => setCurrentSection('main')}>← Volver</OracleButton>
+                    </div>
+                    <p className="font-oracle-body text-center mb-8 opacity-90">El tarot angelical es un puente sagrado entre tu alma y los mensajeros celestiales. Aprende los pasos fundamentales:</p>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🕯️ Preparación Sagrada</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Purifica tu espacio con salvia o palo santo. Enciende una vela blanca. Crea un ambiente de paz y silencio. Lávate las manos como ritual de limpieza energética.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>✨</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🙏 Conexión Angelical</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Invoca a tus ángeles guardianes y al Arcángel Gabriel para claridad. Pide protección y orientación divina. Respira profundo y centra tu corazón en amor y gratitud.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>👼</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">💫 Formulación de Preguntas</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Haz preguntas claras y específicas. Evita preguntas de sí/no. Enfócate en "¿Cómo puedo...?" o "¿Qué necesito saber sobre...?". Mantén una mente abierta y receptiva.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>❓</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🃏 Selección Intuitiva</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Baraja las cartas mientras meditas en tu pregunta. Siente la energía de cada carta. Selecciona las cartas que te llamen la atención con el corazón, no con la mente.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>🎴</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🔮 Interpretación Sagrada</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Observa símbolos, colores y sensaciones. Lee primero con el corazón, luego con la mente. Nota qué emociones despiertan las imágenes. Confía en tu primera impresión intuitiva.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>👁️</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">📝 Reflexión y Registro</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Anota tus interpretaciones y sentimientos en un diario espiritual. Medita sobre cómo aplicar la orientación en tu vida diaria. Agradece a los ángeles por su guía amorosa.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>📖</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">🌟 Práctica Regular</h4>
+                          <p className="font-oracle-body text-sm opacity-75">La consistencia fortalece tu conexión angelical. Practica diariamente, aunque sea una sola carta. Con el tiempo desarrollarás un lenguaje único con tus guías celestiales.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>⭐</OracleButton>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-card/50 border border-card-border/50 rounded-lg">
+                        <div>
+                          <h4 className="font-oracle-subtitle text-lg">💖 Integración Espiritual</h4>
+                          <p className="font-oracle-body text-sm opacity-75">Los mensajes angelicales requieren acción amorosa. Aplica la sabiduría recibida con compasión hacia ti y otros. Recuerda: los ángeles siempre guían hacia el amor y la luz.</p>
+                        </div>
+                        <OracleButton variant="sacred" size="sm" disabled>�</OracleButton>
+                      </div>
                     </div>
                   </div>
                 </div>
